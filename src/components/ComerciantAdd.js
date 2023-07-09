@@ -42,9 +42,9 @@ export default function ComerciantAdd() {
             id="filled-basic"
             label="Nume comerciant"
             variant="filled"
-            fullWidth
             value={comerciantNume}
             onChange={(e) => setName(e.target.value)}
+            fullWidth
           />
           <TextField
             id="filled-basic"

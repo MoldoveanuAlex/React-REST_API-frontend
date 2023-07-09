@@ -1,19 +1,15 @@
-import { Container, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+
+const columns = [
+  { field: "id", headerName: "ID", width: 100 },
+  { field: "comerciantNume", headerName: "Nume comerciant", width: 200 },
+  { field: "comerciantAdresa", headerName: "Adresa comerciant", width: 200 },
+  { field: "comerciantTelefon", headerName: "Telefon comerciant", width: 200 },
+];
 
 export default function ComerciantRead() {
   const [comercianti, setComercianti] = useState([]);
-  //   const comerciantId = null;
-  //   const comerciantNume = "";
-  //   const comerciantAdresa = "";
-  //   const comerciantTelefon = "";
-
-  //   const comerciant = {
-  //     comerciantId,
-  //     comerciantNume,
-  //     comerciantAdresa,
-  //     comerciantTelefon,
-  //   };
 
   useEffect(() => {
     fetch("http://localhost:8080/comerciant/getAllComerciantDetalii")
@@ -22,23 +18,21 @@ export default function ComerciantRead() {
         setComercianti(result);
       });
   }, []);
+  //console.log(comercianti);
 
   return (
-    <Container>
-      <Paper>
-        <h1>Comercianti</h1>
-
-        <Paper>
-          {comercianti.map((comerciant) => (
-            <Paper>
-              Id: {comerciant.comerciantId}
-              Nume Comerciant: {comerciant.comerciantNume}
-              Adresa Comerciant: {comerciant.comerciantAdresa}
-              Telefon Comerciant: {comerciant.comerciantTelefon}
-            </Paper>
-          ))}
-        </Paper>
-      </Paper>
-    </Container>
+      <div style={{ height: "100%", width: "95%", paddingLeft:50, paddingRight:50}}>
+              <h1>Vizualizare comercianti</h1>
+        <DataGrid
+          rows={comercianti}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          pageSizeOptions={[5, 10]}
+        />
+      </div>
   );
 }
