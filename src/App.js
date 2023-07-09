@@ -1,9 +1,12 @@
-import './App.css';
+import "./App.css";
+import ButtonAppBar from "./components/Appbar";
+import ComerciantRead from "./components/ComerciantRead";
 
 function App() {
   return (
     <div className="App">
-      test
+      <ButtonAppBar></ButtonAppBar>
+      <ComerciantRead></ComerciantRead>
     </div>
   );
 }
