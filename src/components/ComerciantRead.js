@@ -21,18 +21,18 @@ export default function ComerciantRead() {
   //console.log(comercianti);
 
   return (
-      <div style={{ height: "100%", width: "95%", paddingLeft:50, paddingRight:50}}>
-              <h1>Vizualizare comercianti</h1>
-        <DataGrid
-          rows={comercianti}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-        />
-      </div>
+    <div style={{ height: "100%", width: "95%", paddingLeft: 50, paddingRight: 50 }}>
+      <h1>Vizualizare comercianti</h1>
+      <DataGrid
+        rows={comercianti}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+      />
+    </div>
   );
 }
